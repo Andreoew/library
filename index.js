@@ -14,7 +14,7 @@ function handleErrors(err) {
   throw new Error(chalk.red(err.code, 'Não há arquivo no caminho'));
 }
 
-async function pushFile(filename){
+async function getFile(filename){
   const encoding = 'utf8';
   try {
     const content = await fs.promises.readFile(filename, encoding)
@@ -24,5 +24,6 @@ async function pushFile(filename){
   }
 }
 
-pushFile('./arquivos/texto1.md');
+// pushFile('./arquivos/texto1.md');
 
+module.exports =  getFile;
