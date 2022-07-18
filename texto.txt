@@ -1,0 +1,17 @@
+// function pushFile(filename) {
+//   const encoding = 'utf8';
+//   fs.promises
+//     .readFile(filename, encoding)
+//     .then((data) => chalk.green(console.log(data)))
+//     .catch((err) => handleErrors(err));
+// }
+
+// function pushFile(filenamepath){
+//   const encoding= 'utf8';
+//   fs.readFile(filenamepath, encoding, (err, data)=> {
+//     if(err) {
+//       handleErrors(err);
+//     }
+//     console.log(chalk.green(data));
+//   })
+// }

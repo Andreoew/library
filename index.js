@@ -1,11 +1,18 @@
 const chalk = require('chalk');
 const fs = require('fs');
 
-function pushFile(filenamepath){
-  const encoding= 'utf8';
-  fs.readFile(filenamepath, encoding, (_, data)=> {
-    console.log(chalk.green(data));
-  })
+function handleErrors(err) {
+  throw new Error(chalk.red(err.code, 'Não há arquivo no caminho'));
+}
+
+async function pushFile(filename){
+  const encoding = 'utf8';
+  try {
+    const content = await fs.promises.readFile(filename, encoding)
+    console.log(chalk.green(content));
+  } catch (err) {
+    handleErrors(err);
+  }
 }
 
 pushFile('./arquivos/texto1.md');
