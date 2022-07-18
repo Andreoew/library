@@ -1,6 +1,15 @@
 const chalk = require('chalk');
 const fs = require('fs');
 
+function extractLinks(content) {
+  const regex = /\[([^\]]*)\]\((https?:\/\/[^$#\s].[^\s]*)\)/gm;
+  const results = [];
+  let temp;
+  while ((temp = regex.exec(content)) !== null){
+    results.push({ [temp[1]]: temp[2] });
+  }
+  return results;
+}
 function handleErrors(err) {
   throw new Error(chalk.red(err.code, 'Não há arquivo no caminho'));
 }
@@ -9,7 +18,7 @@ async function pushFile(filename){
   const encoding = 'utf8';
   try {
     const content = await fs.promises.readFile(filename, encoding)
-    console.log(chalk.green(content));
+    console.log(extractLinks(content));
   } catch (err) {
     handleErrors(err);
   }
@@ -17,12 +26,3 @@ async function pushFile(filename){
 
 pushFile('./arquivos/texto1.md');
 
-console.log(chalk.blue('vamos começar!'));
-
-const paragrafo = 'Texto retornado por uma função';
-
-function texto(string) {
-  return string;
-}
-
-console.log(texto(paragrafo));
