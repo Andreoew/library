@@ -6,6 +6,6 @@
 
 * 2 put your links in the files folder in .md format to do the tests;
 
-* 3 use npm run cli command to test the status of pages;
+* 3 use "npm run cli validation" command to test the status of pages;
 
 # Author: André de Souza (course @alura) with small adaptations
