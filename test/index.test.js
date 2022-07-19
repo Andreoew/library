@@ -14,7 +14,7 @@ describe('getFile::', () => {
     const result = await getFile('./test/arquivos/texto1.md');
     expect(result).toEqual(arraysResult)
   })
-  it('should return undefined if file not found', async () => {
+  it('should return message "not links"', async () => {
     const result = await getFile('./test/arquivos/texto1_semlinks.md');
     expect(result).toBe('not links');
   })

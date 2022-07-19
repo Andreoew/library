@@ -8,7 +8,7 @@ function extractLinks(content) {
   while ((temp = regex.exec(content)) !== null){
     results.push({ [temp[1]]: temp[2] });
   }
-  return results.length === 0 ? 'Não há links' : results;
+  return results.length === 0 ? 'not links' : results;
 }
 function handleErrors(err) {
   throw new Error(chalk.red(err.code, 'Não há arquivo no caminho'));
